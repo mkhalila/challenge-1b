@@ -57,6 +57,11 @@ public:
 class MapOfItems {
 private:
 	vector<Item> items;
+
+public:
+	void addItem(const Item & toAdd) {
+		items.push_back(toAdd);
+	}
 };
 
 ostream & operator<<(ostream & o, const Item & rhs) {
