@@ -20,7 +20,7 @@ private:
 	string id;
 	int time;
 
-	double degToRad(const double degIn) {
+	double degToRad(const double degIn) const {
 		return degIn * (M_PI/180);
 	} 
 
@@ -35,6 +35,21 @@ public:
 	string getID() const { return id; }
 
 	int getTime() const { return time; }
+
+	double distanceTo(const Item other) const {
+		double lat1 = degToRad( getLat() );
+		double lat2 = degToRad( other.getLat() );
+
+		double distLat = lat1 - lat2;
+		double distLong = degToRad(getLong()) - degToRad( other.getLong() );
+
+		const int R = 6373000;
+
+		double a = pow((sin(distLat/2)), 2) + cos(lat1) * cos(lat2) * pow((sin(distLong/2)), 2);
+		double b = 2 * atan2( sqrt(a), sqrt(1-a) );
+
+		return R * b;
+	}
 };
 
 ostream & operator<<(ostream & o, const Item & rhs) {
