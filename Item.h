@@ -1,15 +1,16 @@
 #ifndef ITEM_H
 #define ITEM_H
+#define _USE_MATH_DEFINES
 
 #include <string>
 #include <iostream>
 #include <ostream>
+#include <math.h>
 using std::string;
-
 using std::cout;
 using std::endl;
-
 using std::ostream;
+
 
 // TODO: your code goes here
 class Item {
@@ -41,6 +42,9 @@ ostream & operator<<(ostream & o, const Item & rhs) {
 	return o;
 }
 
+double DegToRad(const double degIn) {
+	return degIn * (M_PI/180);
+} 
 
 // don't write any code below this line
 
