@@ -52,6 +52,10 @@ public:
 	}
 };
 
+class MapOfItems {
+
+};
+
 ostream & operator<<(ostream & o, const Item & rhs) {
 	o << "{" << rhs.getLat() << ", ";
 	o << rhs.getLong() << ", ";
@@ -60,6 +64,8 @@ ostream & operator<<(ostream & o, const Item & rhs) {
 	o << "}";
 	return o;
 }
+
+
 
 // don't write any code below this line
 
