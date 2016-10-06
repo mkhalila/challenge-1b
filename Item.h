@@ -18,11 +18,16 @@ private:
 
 public: 
 	Item(const double latIn, const double longIn, const string idIn, const int timeIn) 
-	: latitude(latIn), longitude(longIn), id(idIn), time(timeIn) {
+	: latitude(latIn), longitude(longIn), id(idIn), time(timeIn) {}
 
-	}
+	double getLat() const { return latitude; }
+
+	double getLong() const { return longitude; }
+
+	string getID() const { return id; }
+
+	int getTime() const { return time; }
 };
-
 
 
 
