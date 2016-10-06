@@ -62,6 +62,10 @@ public:
 	void addItem(const Item & toAdd) {
 		items.push_back(toAdd);
 	}
+
+	int size() const {
+		return items.size();
+	}
 };
 
 ostream & operator<<(ostream & o, const Item & rhs) {
