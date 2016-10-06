@@ -67,8 +67,13 @@ public:
 		return items.size();
 	}
 
-	const vector<Item> & getTour(const double & walkingSpeed) const {
-		
+	vector<Item> getTour(const double & walkingSpeed) const {
+		int timeElapsed = 0;
+		vector<Item> tour;
+		while(timeElapsed < 3600) {
+			
+		}
+		return tour;
 	}
 };
 
