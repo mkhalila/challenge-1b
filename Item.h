@@ -66,6 +66,10 @@ public:
 	int size() const {
 		return items.size();
 	}
+
+	const vector<Item> & getTour(const double & walkingSpeed) const {
+		
+	}
 };
 
 ostream & operator<<(ostream & o, const Item & rhs) {
