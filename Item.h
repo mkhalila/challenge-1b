@@ -6,10 +6,12 @@
 #include <iostream>
 #include <ostream>
 #include <math.h>
+#include <vector>
 using std::string;
 using std::cout;
 using std::endl;
 using std::ostream;
+using std::vector;
 
 
 // TODO: your code goes here
@@ -53,7 +55,8 @@ public:
 };
 
 class MapOfItems {
-
+private:
+	vector<Item> items;
 };
 
 ostream & operator<<(ostream & o, const Item & rhs) {
