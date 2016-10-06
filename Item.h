@@ -20,6 +20,10 @@ private:
 	string id;
 	int time;
 
+	double degToRad(const double degIn) {
+		return degIn * (M_PI/180);
+	} 
+
 public: 
 	Item(const double latIn, const double longIn, const string idIn, const int timeIn) 
 	: latitude(latIn), longitude(longIn), id(idIn), time(timeIn) {}
@@ -41,10 +45,6 @@ ostream & operator<<(ostream & o, const Item & rhs) {
 	o << "}";
 	return o;
 }
-
-double DegToRad(const double degIn) {
-	return degIn * (M_PI/180);
-} 
 
 // don't write any code below this line
 
