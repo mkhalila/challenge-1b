@@ -3,10 +3,13 @@
 
 #include <string>
 #include <iostream>
+#include <ostream>
 using std::string;
 
 using std::cout;
 using std::endl;
+
+using std::ostream;
 
 // TODO: your code goes here
 class Item {
@@ -29,7 +32,14 @@ public:
 	int getTime() const { return time; }
 };
 
-
+ostream & operator<<(ostream & o, const Item & rhs) {
+	o << "{" << rhs.getLat() << ", ";
+	o << rhs.getLong() << ", ";
+	o << "\"" << rhs.getID() << "\"" << ", ";
+	o << rhs.getTime();
+	o << "}";
+	return o;
+}
 
 
 // don't write any code below this line
