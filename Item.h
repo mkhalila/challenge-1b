@@ -68,7 +68,14 @@ public:
 	}
 
 	vector<Item> getTour(const double & walkingSpeed) const {
-		
+		vector<Item> tour; //Store tour items
+		vector<Item> notVisited = items; //Store copy of items
+		double time = notVisited[0].getTime(); //Set time equal to time of first item
+		tour.push_back(notVisited[0]); //Visit first item
+		Item lastVisited = notVisited[0]; //Track last visited item
+		notVisited.erase(notVisited.begin()); //Remove visited item from notVisited list
+
+		return tour;
 	}
 };
 
