@@ -75,6 +75,11 @@ public:
 		Item lastVisited = notVisited[0]; //Track last visited item
 		notVisited.erase(notVisited.begin()); //Remove visited item from notVisited list
 
+		//For each item that hasn't been visited yet
+		for (int i = 0; i < notVisited.size() && time < 3600; ++i) {
+			/* code */
+		}
+
 		return tour;
 	}
 };
