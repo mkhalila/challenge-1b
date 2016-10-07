@@ -74,6 +74,8 @@ public:
 		tour.push_back(notVisited[0]); //Visit first item
 		Item lastVisited = notVisited[0]; //Track last visited item
 		notVisited.erase(notVisited.begin()); //Remove visited item from notVisited list
+		int lowestVTime = 3600;
+		Item lowestVTItem = lastVisited;
 
 		//For each item that hasn't been visited yet
 		for (int i = 0; i < notVisited.size() && tourTime < 3600; ++i) {
@@ -92,6 +94,13 @@ public:
 			if (visitTime < notVisited[i].getTime()) {
 				//Wait till item is available 
 				visitTime = notVisited[i].getTime();
+			}
+			//If this item is closest
+			if (visitTime < lowestVTime) {
+				//Track its time as shortest
+				lowestVTime = visitTime;
+				//Set it as the item with shortest visit time
+				lowestVTItem = notVisited[i];
 			}
 		}
 
