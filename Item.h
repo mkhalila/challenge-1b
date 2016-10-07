@@ -58,22 +58,7 @@ class MapOfItems {
 private:
 	vector<Item> items;
 
-public:
-	void addItem(const Item & toAdd) {
-		items.push_back(toAdd);
-	}
-
-	int size() const {
-		return items.size();
-	}
-
-	vector<Item> getTour(const double & walkingSpeed) const {
-		vector<Item> tour; //Store tour items
-		vector<Item> notVisited = items; //Store copy of items
-		double tourTime = notVisited[0].getTime(); //Set time equal to time of first item
-		tour.push_back(notVisited[0]); //Visit first item
-		Item lastVisited = notVisited[0]; //Track last visited item
-		notVisited.erase(notVisited.begin()); //Remove visited item from notVisited list
+	Item determineNextVisit(const Item & lastVisited, const vector<Item> & notVisited, const double & tourTime, const double walkingSpeed) const {
 		int lowestVTime = 3600;
 		Item lowestVTItem = lastVisited;
 
@@ -93,7 +78,26 @@ public:
 				lowestVTItem = notVisited[i]; //Set it as the item with shortest visit time
 			}
 		}
+	}
 
+public:
+	void addItem(const Item & toAdd) {
+		items.push_back(toAdd);
+	}
+
+	int size() const {
+		return items.size();
+	}
+
+	vector<Item> getTour(const double & walkingSpeed) const {
+		vector<Item> tour; //Store tour items
+		vector<Item> notVisited = items; //Store copy of items
+		double tourTime = notVisited[0].getTime(); //Set time equal to time of first item
+		tour.push_back(notVisited[0]); //Visit first item
+		Item lastVisited = notVisited[0]; //Track last visited item
+		notVisited.erase(notVisited.begin()); //Remove visited item from notVisited list
+
+		Item nextVisit = determineNextVisit(lastVisited, notVisited, tourTime, walkingSpeed); 
 		return tour;
 	}
 };
