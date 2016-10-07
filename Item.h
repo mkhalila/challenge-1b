@@ -70,14 +70,17 @@ public:
 	vector<Item> getTour(const double & walkingSpeed) const {
 		vector<Item> tour; //Store tour items
 		vector<Item> notVisited = items; //Store copy of items
-		double time = notVisited[0].getTime(); //Set time equal to time of first item
+		double tourTime = notVisited[0].getTime(); //Set time equal to time of first item
 		tour.push_back(notVisited[0]); //Visit first item
 		Item lastVisited = notVisited[0]; //Track last visited item
 		notVisited.erase(notVisited.begin()); //Remove visited item from notVisited list
 
 		//For each item that hasn't been visited yet
-		for (int i = 0; i < notVisited.size() && time < 3600; ++i) {
-			/* code */
+		for (int i = 0; i < notVisited.size() && tourTime < 3600; ++i) {
+			//Distance from last visit to this item
+			int distance = lastVisited.distanceTo(notVisited[i]);
+			//Time from last visit to this item
+			int time = distance/walkingSpeed;
 		}
 
 		return tour;
