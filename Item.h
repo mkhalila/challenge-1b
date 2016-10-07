@@ -79,28 +79,18 @@ public:
 
 		//For each item that hasn't been visited yet
 		for (int i = 0; i < notVisited.size() && tourTime < 3600; ++i) {
-			//Distance from last visit to this item
-			int distance = lastVisited.distanceTo(notVisited[i]);
-			//Time from last visit to this item
-			int walkTime = distance/walkingSpeed;
-			//Time this item would be visited if tour went to it
-			int visitTime = walkTime + tourTime; 
-			//If visitTime is more than 15 minutes late
-			if (visitTime > notVisited[i].getTime() + 15) {
-				//Don't visit this item, go to next item
-				continue;
+			int distance = lastVisited.distanceTo(notVisited[i]); //Distance from last visit to this item
+			int walkTime = distance/walkingSpeed; //Time from last visit to this item
+			int visitTime = walkTime + tourTime; //Time this item would be visited if tour went to it
+			if (visitTime > notVisited[i].getTime() + 15) { //If visitTime is more than 15 minutes late
+				continue; //Don't visit this item, go to next item
 			}
-			//If visitTime is earlier than item is available
-			if (visitTime < notVisited[i].getTime()) {
-				//Wait till item is available 
-				visitTime = notVisited[i].getTime();
+			if (visitTime < notVisited[i].getTime()) { //If visitTime is earlier than item is available	
+				visitTime = notVisited[i].getTime(); //Wait till item is available 
 			}
-			//If this item is closest
-			if (visitTime < lowestVTime) {
-				//Track its time as shortest
-				lowestVTime = visitTime;
-				//Set it as the item with shortest visit time
-				lowestVTItem = notVisited[i];
+			if (visitTime < lowestVTime) { //If this item is closest	
+				lowestVTime = visitTime; //Track its time as shortest
+				lowestVTItem = notVisited[i]; //Set it as the item with shortest visit time
 			}
 		}
 
