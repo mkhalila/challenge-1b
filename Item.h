@@ -88,6 +88,11 @@ public:
 				//Don't visit this item, go to next item
 				continue;
 			}
+			//If visitTime is earlier than item is available
+			if (visitTime < notVisited[i].getTime()) {
+				//Wait till item is available 
+				visitTime = notVisited[i].getTime();
+			}
 		}
 
 		return tour;
