@@ -80,7 +80,9 @@ public:
 			//Distance from last visit to this item
 			int distance = lastVisited.distanceTo(notVisited[i]);
 			//Time from last visit to this item
-			int time = distance/walkingSpeed;
+			int walkTime = distance/walkingSpeed;
+			//Time this item would be visited if tour went to it
+			int visitTime = walkTime + tourTime; 
 		}
 
 		return tour;
