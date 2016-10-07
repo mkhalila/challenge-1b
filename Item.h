@@ -78,6 +78,8 @@ private:
 				lowestVTItem = notVisited[i]; //Set it as the item with shortest visit time
 			}
 		}
+
+		return lowestVTime;
 	}
 
 public:
