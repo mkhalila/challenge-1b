@@ -83,6 +83,11 @@ public:
 			int walkTime = distance/walkingSpeed;
 			//Time this item would be visited if tour went to it
 			int visitTime = walkTime + tourTime; 
+			//If visitTime is more than 15 minutes late
+			if (visitTime > notVisited[i].getTime() + 15) {
+				//Don't visit this item, go to next item
+				continue;
+			}
 		}
 
 		return tour;
