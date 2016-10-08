@@ -79,7 +79,7 @@ private:
 			}
 		}
 
-		return lowestVTime;
+		return lowestVTItem;
 	}
 
 public:
