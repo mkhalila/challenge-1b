@@ -63,7 +63,7 @@ private:
 		Item lowestVTItem = lastVisited;
 
 		//For each item that hasn't been visited yet
-		for (int i = 0; i < notVisited.size() && tourTime < 3600; ++i) {
+		for (int i = 0; i < notVisited.size(); ++i) {
 			int distance = lastVisited.distanceTo(notVisited[i]); //Distance from last visit to this item
 			int walkTime = distance/walkingSpeed; //Time from last visit to this item
 			int visitTime = walkTime + tourTime; //Time this item would be visited if tour went to it
@@ -78,7 +78,7 @@ private:
 				lowestVTItem = notVisited[i]; //Set it as the item with shortest visit time
 			}
 		}
-
+		tourTime = lowestVTime;
 		return lowestVTItem;
 	}
 
