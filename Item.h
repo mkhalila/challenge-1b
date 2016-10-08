@@ -99,7 +99,12 @@ public:
 		Item lastVisited = notVisited[0]; //Track last visited item
 		notVisited.erase(notVisited.begin()); //Remove visited item from notVisited list
 
-		Item nextVisit = determineNextVisit(lastVisited, notVisited, tourTime, walkingSpeed); 
+		for (int i = 1; i < items.size() && tourTime < 3600; ++i) {
+			lastVisited = determineNextVisit(lastVisited, notVisited, tourTime, walkingSpeed); 
+			tour.push_back(lastVisited); //Visit item
+			notVisited.erase(notVisited.begin() + i); //Remove visited item
+		}
+
 		return tour;
 	}
 };
