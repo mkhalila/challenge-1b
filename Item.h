@@ -111,7 +111,7 @@ public:
 		for (int i = 1; i < items.size() && tourTime < 3600; ++i) {
 			lastVisited = determineNextVisit(lastVisited, notVisited, tourTime, walkingSpeed); 
 			tour.push_back(lastVisited); //Visit item
-			notVisited.erase(notVisited.begin() + i); //Remove visited item
+			notVisited.erase(notVisited.begin() + (getIndex(notVisited, lastVisited))); //Remove visited item
 		}
 
 		return tour;
