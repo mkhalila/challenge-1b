@@ -58,7 +58,7 @@ class MapOfItems {
 private:
 	vector<Item> items;
 
-	Item determineNextVisit(const Item & lastVisited, const vector<Item> & notVisited, const double & tourTime, const double walkingSpeed) const {
+	Item determineNextVisit(const Item & lastVisited, const vector<Item> & notVisited, double & tourTime, const double walkingSpeed) const {
 		int lowestVTime = 3600;
 		Item lowestVTItem = lastVisited;
 
