@@ -91,6 +91,15 @@ private:
 		}
 	}
 
+	bool isVisited(const vector<Item> & tour, const Item & item) const {
+		for (int i = 0; i < tour.size(); ++i) {
+			if (item.getID() == tour[i].getID()) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 public:
 	void addItem(const Item & toAdd) {
 		items.push_back(toAdd);
