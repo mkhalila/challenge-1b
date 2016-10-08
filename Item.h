@@ -67,7 +67,7 @@ private:
 			int distance = lastVisited.distanceTo(notVisited[i]); //Distance from last visit to this item
 			int walkTime = distance/walkingSpeed; //Time from last visit to this item
 			int visitTime = walkTime + tourTime; //Time this item would be visited if tour went to it
-			if (visitTime > notVisited[i].getTime() + 15) { //If visitTime is more than 15 minutes late
+			if (visitTime > notVisited[i].getTime() + 900) { //If visitTime is more than 15 minutes late
 				continue; //Don't visit this item, go to next item
 			}
 			if (visitTime < notVisited[i].getTime()) { //If visitTime is earlier than item is available	
