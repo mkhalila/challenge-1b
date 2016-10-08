@@ -82,6 +82,15 @@ private:
 		return lowestVTItem;
 	}
 
+	int getIndex(const vector<Item> & notVisited, const Item & item) const {
+		int index;
+		for (int i = 0; i < notVisited.size(); ++i) {
+			if (item.getID() == notVisited[i].getID()) {
+				return index = i;
+			}
+		}
+	}
+
 public:
 	void addItem(const Item & toAdd) {
 		items.push_back(toAdd);
